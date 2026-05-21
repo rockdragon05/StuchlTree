@@ -252,6 +252,49 @@ text {
   text-size-adjust: none;         /* Standard */
 }
 
+/* =========================
+   IMAGE ZOOM MODAL
+========================= */
+
+#imageModal {
+  display: none;
+
+  position: fixed;
+  z-index: 20000;
+
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0,0,0,0.92);
+
+  cursor: zoom-out;
+}
+
+#zoomedImage {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  max-width: 95%;
+  max-height: 95%;
+
+  object-fit: contain;
+
+  box-shadow: 0 0 25px rgba(0,0,0,0.5);
+}
+
+/* popup images */
+
+#content img {
+  cursor: zoom-in;
+}
+
 </style>
 </head>
 
@@ -7405,6 +7448,10 @@ text {
 
 </div>
 
+<div id="imageModal" onclick="closeImageModal()">
+  <img id="zoomedImage">
+</div>
+
 <script>
 function openPerson(name) {
 
@@ -7687,6 +7734,7 @@ content.innerHTML = `
   ${p.picture ? `
     <img
       src="${p.picture}"
+      onclick="openImage('${p.picture}')"
       onerror="this.remove();"
       style="max-width:100%; height:auto; display:block; margin-bottom:20px;">
   ` : ""}
@@ -7694,6 +7742,7 @@ content.innerHTML = `
   ${p.gravestone ? `
     <img
       src="${p.gravestone}"
+      onclick="openImage('${p.gravestone}')"
       onerror="this.remove();"
       style="max-width:100%; height:auto; display:block; margin-bottom:20px;">
   ` : ""}
@@ -7701,11 +7750,11 @@ content.innerHTML = `
   ${p.location ? `
     <img
       src="${p.location}"
+      onclick="openImage('${p.location}')"
       onerror="this.remove();"
       style="max-width:100%; height:auto; display:block; margin-bottom:20px;">
   ` : ""}
 `;
-
 }
 
 
@@ -7951,6 +8000,21 @@ document.querySelectorAll('[id^="click-"]').forEach(el => {
   });
 
 });
+
+function openImage(src) {
+
+  const modal = document.getElementById("imageModal");
+  const img = document.getElementById("zoomedImage");
+
+  img.src = src;
+
+  modal.style.display = "block";
+}
+
+function closeImageModal() {
+  document.getElementById("imageModal").style.display = "none";
+}
+
 
 </script>
 
