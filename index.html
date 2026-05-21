@@ -243,7 +243,11 @@ filter: grayscale(100%) brightness(1.2) contrast(0.75);
   font-weight: bold;
 }
 
-
+text {
+  -webkit-text-size-adjust: none; /* Disables font boosting in WebKit/Chrome mobile */
+  -moz-text-size-adjust: none;    /* Disables it in Firefox mobile */
+  text-size-adjust: none;         /* Standard */
+}
 
 </style>
 </head>
