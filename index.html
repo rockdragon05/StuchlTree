@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stuchl Family Tree v0.1</title>
+  <title>v0.2</title>
 <style>
   body {
     margin: 0;
@@ -102,12 +102,14 @@ text, tspan {
 .legend-item {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 
   cursor: pointer;
-  font-size: 13px;
 
-  padding: 4px 8px;
+  font-size: 18px;
+
+  padding: 10px 12px;
+
   border-radius: 6px;
   user-select: none;
 }
@@ -119,8 +121,8 @@ text, tspan {
 
 /* color swatches */
 .legend-color {
-  width: 12px;
-  height: 12px;
+  width: 18px;
+  height: 18px;
   border-radius: 3px;
 }
 
@@ -147,10 +149,14 @@ filter: grayscale(100%) brightness(1.2) contrast(0.75);
 #legend-toggle {
   all: unset;
   cursor: pointer;
-  font-size: 16px;
+
+  font-size: 24px;
   font-weight: bold;
+
   align-self: flex-start;
-  padding: 2px 6px;
+
+  padding: 6px 10px;
+
   border-radius: 4px;
 }
 
@@ -305,32 +311,10 @@ text {
   #legend {
     top: 8px;
     left: 8px;
-
-    padding: 14px 16px;
-
     max-width: 85vw;
   }
 
-  .legend-item {
-    font-size: 18px;
-
-    padding: 10px 12px;
-
-    gap: 12px;
-  }
-
-  .legend-color {
-    width: 18px;
-    height: 18px;
-  }
-
-  #legend-toggle {
-    font-size: 24px;
-    padding: 6px 10px;
-  }
-
 }
-
 
 </style>
 </head>
